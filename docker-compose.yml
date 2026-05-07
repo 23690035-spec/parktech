@@ -1,0 +1,42 @@
+services:
+
+  # SERVIDOR WEB (PHP + Apache)
+  app:
+    build: .
+    container_name: parktech_app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy   # espera a que MySQL esté listo
+    networks:
+      - parktech_network
+
+  # BASE DE DATOS (MySQL)
+  db:
+    image: mysql:8.0
+    container_name: parktech_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: parking
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      # CORREGIDO: el archivo está en la raíz, no en ./docker/
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql          # datos persistentes entre reinicios
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - parktech_network
+
+networks:
+  parktech_network:
+    driver: bridge
+
+volumes:
+  db_data:

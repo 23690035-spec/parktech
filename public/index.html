@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ParkTech - Sistema inteligente de gestión de estacionamiento">
+    <title>ParkTech — Ciudad Valles</title>
+ 
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+    <header>
+        <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;height:62px;">
+            <div>
+                <div class="logo-mark" onclick="navigateTo('map')">ParkTech</div>
+                <div class="logo-tag">Ciudad Valles · Sistema inteligente</div>
+            </div>
+            <nav id="nav-menu"></nav>
+        </div>
+    </header>
+ 
+    <main id="content" style="flex:1;"></main>
+ 
+    <footer>
+        <p>&copy; 2025 ParkTech Ciudad Valles — Proyecto Universitario</p>
+    </footer>
+ 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+ 
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+ 
