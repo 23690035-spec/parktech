@@ -226,7 +226,7 @@ header {
     border-bottom: 1px solid rgba(0,229,255,0.3);
     transition: color 0.2s, border-color 0.2s;
 }
-.auth-footer span:hover { color: #33eaff; border-color: #33eaff; }
+.auth-footer span:hover { color: #33eaff; border-color: #000000; }
 .register-box .auth-footer span { color: var(--accent2); border-color: rgba(124,58,237,0.3); }
  
 .input-label {
